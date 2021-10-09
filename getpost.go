@@ -10,20 +10,20 @@ import (
 	"github.com/gorilla/mux"
 )
 
-type user struct {
+type post struct {
 	Id               string    `json:"Id"`
 	Caption          string    `json:"cap"`
 	Image_URL        string    `json:"imageurl"`
 	Posted_Timestamp time.Time `json:"timestamp"`
 }
 
-var users []user
+var posts []post
 
 func main() {
-	users = []user{
-		user{Id: "1", Caption: "Anudeep", Image_URL: "www.vit.ac.in", Posted_Timestamp: time.Now()},
-		user{Id: "2", Caption: "Vamsi", Image_URL: "www.youtube.in", Posted_Timestamp: time.Now()},
-		user{Id: "3", Caption: "Abhinav", Image_URL: "www.google.in", Posted_Timestamp: time.Now()},
+	posts = []post{
+		post{Id: "1", Caption: "Anudeep", Image_URL: "www.vit.ac.in", Posted_Timestamp: time.Now()},
+		post{Id: "2", Caption: "Vamsi", Image_URL: "www.youtube.in", Posted_Timestamp: time.Now()},
+		post{Id: "3", Caption: "Abhinav", Image_URL: "www.google.in", Posted_Timestamp: time.Now()},
 	}
 	handleRequests()
 }
@@ -31,8 +31,8 @@ func main() {
 func get(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
 	key := vars["id"]
-	for _, user1 := range users {
-		if user1.Id == key {
+	for _, post1 := range posts {
+		if post1.Id == key {
 			json.NewEncoder(w).Encode(user1)
 		}
 	}
