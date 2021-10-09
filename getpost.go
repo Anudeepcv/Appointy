@@ -33,7 +33,7 @@ func get(w http.ResponseWriter, r *http.Request) {
 	key := vars["id"]
 	for _, post1 := range posts {
 		if post1.Id == key {
-			json.NewEncoder(w).Encode(user1)
+			json.NewEncoder(w).Encode(post1)
 		}
 	}
 }
