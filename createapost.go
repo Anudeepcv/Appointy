@@ -11,14 +11,14 @@ import (
 	"github.com/gorilla/mux"
 )
 
-type user struct {
+type post struct {
 	Id               string    `json:"Id"`
 	Caption          string    `json:"cap"`
 	Image_URL        string    `json:"imageurl"`
 	Posted_Timestamp time.Time `json:"timestamp"`
 }
 
-var users []user
+var posts []post
 
 func main() {
 	users = []user{
@@ -31,10 +31,10 @@ func main() {
 
 func create(w http.ResponseWriter, r *http.Request) {
 	add, _ := ioutil.ReadAll(r.Body)
-	var user1 user
-	json.Unmarshal(add, &user1)
-	users = append(users, user1)
-	json.NewEncoder(w).Encode(user1)
+	var post1 post
+	json.Unmarshal(add, &post1)
+	users = append(posts, post1)
+	json.NewEncoder(w).Encode(post1)
 }
 
 func home(w http.ResponseWriter, r *http.Request) {
@@ -42,7 +42,7 @@ func home(w http.ResponseWriter, r *http.Request) {
 }
 
 func showposts(w http.ResponseWriter, r *http.Request) {
-	json.NewEncoder(w).Encode(users)
+	json.NewEncoder(w).Encode(posts)
 }
 
 func handleRequests() {
