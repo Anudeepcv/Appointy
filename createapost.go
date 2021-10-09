@@ -21,10 +21,10 @@ type post struct {
 var posts []post
 
 func main() {
-	users = []user{
-		user{Id: "1", Caption: "Anudeep", Image_URL: "www.vit.ac.in", Posted_Timestamp: time.Now()},
-		user{Id: "2", Caption: "Vamsi", Image_URL: "www.youtube.in", Posted_Timestamp: time.Now()},
-		user{Id: "3", Caption: "Abhinav", Image_URL: "www.google.in", Posted_Timestamp: time.Now()},
+	posts = []post{
+		post{Id: "1", Caption: "Anudeep", Image_URL: "www.vit.ac.in", Posted_Timestamp: time.Now()},
+		post{Id: "2", Caption: "Vamsi", Image_URL: "www.youtube.in", Posted_Timestamp: time.Now()},
+		post{Id: "3", Caption: "Abhinav", Image_URL: "www.google.in", Posted_Timestamp: time.Now()},
 	}
 	handleRequests()
 }
