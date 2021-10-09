@@ -33,7 +33,7 @@ func create(w http.ResponseWriter, r *http.Request) {
 	add, _ := ioutil.ReadAll(r.Body)
 	var post1 post
 	json.Unmarshal(add, &post1)
-	users = append(posts, post1)
+	posts = append(posts, post1)
 	json.NewEncoder(w).Encode(post1)
 }
 
